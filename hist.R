@@ -30,36 +30,23 @@ theme_mc <- theme_economist() +
 
 d <- "C:/Users/matt/Dropbox/01a. Resources/data/energy_data/" # parent directory for the data
 
-prices <- read_csv(paste0(d,"data/world_bank_prices.csv"), skip = 6)
-
-# TIDY ------------------------------------------------------------------
-
-coal_prices <- prices[ ,c(1, 6)]
-
-names(coal_prices) <- c("month", "aus_coal")
-
-coal_prices$month <- str_replace(coal_prices$month, "M", "-")
-
-coal_prices$month <- paste0(coal_prices$month, "-01")
-
-coal_prices$month <- as.Date(coal_prices$month, "%Y-%m-%d")
-
-coal_prices <- coal_prices[121:701, ]
-
-coal_prices$aus_coal <- as.numeric(coal_prices$aus_coal)
+hist_coal <- read_csv(paste0(d,"data/hist_coal.csv"), skip = 0)
 
 # VISUALISE --------------------------------------------------------------------
 
-p_coal_prices <- coal_prices %>%
-  filter(month > "2001-01-01") %>% 
-  ggplot(aes(x = month, y = aus_coal)) + 
-  geom_line(color = "#4484ce", size = 1) + 
+p_hist_coal <- hist_coal %>%
+  ggplot(aes(x = year, y = ej)) + 
+  geom_area(aes(fill = type, color = type), size = 1) + 
+  scale_fill_manual(values = c("#F19F4D", "#4484ce")) +
+  scale_color_manual(values = c("#F19F4D", "#4484ce")) +
   theme_mc + 
-  labs(title = "Thermal coal prices", subtitle = "per metric tonne, US nominal dollars", caption = "Source: World Bank Commodity Price Data, Newcastle/Port Kembla from 2002 onwards, 6,300 kcal/kg", x ="", y = "") 
+  labs(title = "Primary energy coal use", subtitle = "exajoules", caption = "Source: IEA World Energy Outlook & Ritchie, H. and Roser, M. https://bit.ly/2HkJ0jf", x ="", y = "") + 
+  annotate("text", label = "Before the 21st century\n5,700EJ of coal produced", x = 1850, y = 28, size = 3) +
+  annotate("text", label = "First 40 years of 21st century 6100EJ\nof coal expected to be produced", x = 1950, y = 125, size = 3)
 
 # EXPORT --------------------------------------------------------------------
 
-png("images/p_coal_prices.png", width = 6, height = 3, units = "in", res = 300)
-p_coal_prices
+png("images/p_hist_coal.png", width = 6, height = 3, units = "in", res = 300)
+p_hist_coal
 dev.off() 
 
