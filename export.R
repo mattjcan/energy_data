@@ -1,3 +1,5 @@
+library(webshot)
+
 # EXPORT --------------------------------------------------------------------
 
 png("images/p_delta_ap.png", width = 6, height = 3, units = "in", res = 300)
@@ -55,3 +57,8 @@ dev.off()
 png("images/p_coal_prices.png", width = 6, height = 3, units = "in", res = 300)
 p_coal_prices
 dev.off() 
+
+
+file_name <- paste0("file://", normalizePath("coal_slides.html"))
+
+webshot(file_name, "coal_slides.pdf")

@@ -1,0 +1,27 @@
+---
+  title: "The coal era is not over"
+subtitle: "BP statistical Review of World Energy 2018"
+  author: Matt Canavan
+  date: 18 June 2018
+  output: ioslides_presentation
+---
+  
+```{r global_options, include=FALSE}
+
+knitr::opts_chunk$set(fig.width=7, fig.height=5, echo=FALSE, warning=FALSE, message=FALSE, dpi = 300)
+
+library(knitr)
+
+source("bp.R")
+source("prices.R")
+source("hist.R")
+
+```
+
+
+# Longman over the last decade
+
+```{r }
+p_delta_ap
+```
+

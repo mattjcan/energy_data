@@ -1,0 +1,123 @@
+---
+title: "The coal era is not over"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/mjc-css/mjc-theme.css", "libs/mjc-css/mjc-fonts.css"]
+    lib_dir: libs
+---
+
+```{r global_options, include=FALSE}
+
+knitr::opts_chunk$set(fig.width=7, fig.height=4.5, echo=FALSE, warning=FALSE, message=FALSE, dpi = 300)
+
+library(knitr)
+
+source("bp.R")
+source("prices.R")
+source("hist.R")
+
+```
+
+# Coal has fuelled growth in Asian electricity
+
+```{r fig.height = 3}
+p_delta_ap
+```
+
+- In the last year, coal fired power generation has increased in the Asia Pacific region by 330 terawatt hours, contributing 66% to increased electricty.   
+
+- That is the equivalent of 33 Hazelwoods. (In last year of operation, Hazelwood produced 10 terawatt hours.)
+---
+
+# Same is true across the world
+
+```{r fig.height = 3}
+p_delta
+```
+
+- Global electricity production increased by 590 terawatt hours in the past year, and just under 50 per cent of this increase was through the greater use of coal. 
+
+- There have been declines in the use of coal in the United States (because of cheap shale gas) and Europe (because of policy changes and natural depletion). 
+
+---
+
+# Coal has remained at top for decades
+
+```{r}
+p_g_fuel
+```
+
+---
+
+# Energy transitions take longer than you think
+
+- In 2017 coal fired power set a new record for supply at 9724 terawatt hours, representing 40 per cent of world electricity generation, and by far the largest single source of global electricity. 
+
+- Coal fired electricity has increased by 62 per cent since 2000. It has been the fastest increase in coal use on record.
+
+- The proportion of electricity supplied by coal has not changed in 40 years.
+
+- As BP’s Chief Economist said on the release of the statistics:
+
+> … despite the extraordinary growth in renewables in recent years, and the huge policy efforts to encourage a shift away from coal into cleaner, lower carbon fuels, there has been almost no improvement in the power sector fuel mix over the past 20 years. The share of coal in the power sector in 1998 was 38% – exactly the same as in 2017 … The share of non-fossil in 2017 is actually a little lower than it was 20 years ago, as the growth of renewables hasn’t offset the declining share of nuclear.
+
+---
+
+# Asia is not slowing down
+
+```{r fig.height = 3}
+p_r_gen$`Asia Pacific`
+```
+
+- In the Asia-Pacific, coal power has more than tripled since 2000. Over the past 15 years more than 1000 GW of coal fired power has been built. That is equal to over 600 Hazelwood power stations.
+
+- In the last 5 years, China has built the equivalent of a new Hazelwood every month. 
+
+---
+
+# Coal power around the world
+
+```{r}
+grid.arrange(p_c_gen$China + labs(title = "China") + theme(plot.title = element_text(size = 12)), p_c_gen$Japan + labs(title = "Japan") + theme(plot.title = element_text(size = 12)), p_c_gen$US + labs(title = "United States") + theme(plot.title = element_text(size = 12)), p_r_gen$Europe + labs(title = "Europe") + theme(plot.title = element_text(size = 12)), ncol = 2)
+```
+
+---
+
+# Solar will not power India on its own
+
+```{r fig.height=3}
+grid.arrange(p_g_india, p_delta_india, ncol = 2)
+```
+
+- Solar is growing strongly in India but coal generates 53 times more power than solar in India. 
+
+- Over the past year Indian electricity demand grew by over 78 terawatt hours and increases in coal power contributed 65 per cent towards that increase.
+---
+
+# Coal prices are strong
+
+```{r fig.height=3}
+p_coal_prices
+```
+
+- Financial analysts Wood Mackenzie estimate that the cost of coal from the Adani Carmichael coal mine will be about US$40 per tonne.
+
+- The Galilee would be the first major, new coal basin opened for more than 50 years. There are 5 other proposed mines in addition to Adani’s and altogether they would create more than 16,000 jobs.
+
+---
+
+# Coal has helped bring down poverty
+
+```{r }
+grid.arrange(p_r_gen$`Asia Pacific` + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), p_pov_ap + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), ncol = 2)
+```
+
+---
+
+# A lot more coal must be mined
+
+```{r}
+p_hist_coal
+```

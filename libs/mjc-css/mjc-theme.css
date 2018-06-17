@@ -1,0 +1,22 @@
+.title-slide {
+  background-color: #163260;
+    text-shadow: 0 0 20px #333;
+}
+
+.title-slide h1, .title-slide h2, .title-slide h3 {
+    color: #ffc20e;
+  text-shadow: 0 0 20px #333;
+}
+
+.title-slide h1 {
+font-size: 300%;
+}
+
+.remark-slide-number {
+  display: none;
+}
+
+.remark-slide-content h2 {
+  font-size: 30px;
+}
+

@@ -59,7 +59,4 @@ p_coal_prices <- coal_prices %>%
 
 # EXPORT --------------------------------------------------------------------
 
-png("images/p_coal_prices.png", width = 6, height = 3, units = "in", res = 300)
-p_coal_prices
-dev.off() 
 
