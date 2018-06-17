@@ -4,7 +4,8 @@ author: "Matthew Canavan"
 date: "17 June 2018"
 output:
   html_document:
-    theme: readable  
+    theme: readable 
+    css: css/readable_user.css 
 ---
 
 ```{r setup, include=FALSE}

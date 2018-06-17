@@ -44,9 +44,4 @@ p_hist_coal <- hist_coal %>%
   annotate("text", label = "Before the 21st century\n5,700EJ of coal produced", x = 1850, y = 28, size = 3) +
   annotate("text", label = "First 40 years of 21st century 6100EJ\nof coal expected to be produced", x = 1950, y = 125, size = 3)
 
-# EXPORT --------------------------------------------------------------------
-
-png("images/p_hist_coal.png", width = 6, height = 3, units = "in", res = 300)
-p_hist_coal
-dev.off() 
 
