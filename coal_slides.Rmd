@@ -37,7 +37,7 @@ p_delta_ap
 p_delta
 ```
 
-- Global electricity production increased by 590 terawatt hours in the past year, and just under 50 per cent of this increase was through the greater use of coal. 
+- Global electricity production increased by over 600 terawatt hours in the past year, and just under 50 per cent of this increase was through the greater use of coal. 
 
 - There have been declines in the use of coal in the United States (because of cheap shale gas) and Europe (because of policy changes and natural depletion). 
 
@@ -53,7 +53,7 @@ p_g_fuel
 
 # Energy transitions take longer than you think
 
-- In 2017 coal fired power set a new record for supply at 9724 terawatt hours, representing 40 per cent of world electricity generation, and by far the largest single source of global electricity. 
+- In 2017 coal fired power set a new record for supply at 9723 terawatt hours, representing 40 per cent of world electricity generation, and by far the largest single source of global electricity. 
 
 - Coal fired electricity has increased by 62 per cent since 2000. It has been the fastest increase in coal use on record.
 
@@ -73,7 +73,7 @@ p_r_gen$`Asia Pacific`
 
 - In the Asia-Pacific, coal power has more than tripled since 2000. Over the past 15 years more than 1000 GW of coal fired power has been built. That is equal to over 600 Hazelwood power stations.
 
-- In the last 5 years, China has built the equivalent of a new Hazelwood every month. 
+- In statistical terms, 3 new Hazelwood sized coal power plants have opened every month in China for the last 5 years. 
 
 ---
 

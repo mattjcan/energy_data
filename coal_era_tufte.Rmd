@@ -58,10 +58,9 @@ p_r_gen$`Asia Pacific`
 
 These increases can only but be the result of continued investment in coal fired power stations. Over the past 15 years more than 1000 GW of coal fired power has been built. To put that in context that is equivalent of over 600 Hazelwood power stations. 
 
-And the trend is not slowing down. These increases are the result of continued investment in coal fired power stations. In the last 5 years,  China's coal production capacity has increased by almost 300GW. In statistical terms, 3 new Hazelwood sized coal power plants have opened every month in China for the last 5 years. 
+And the trend is not slowing down. In the last 5 years,  China's coal production capacity has increased by almost 300GW. In statistical terms, 3 new Hazelwood sized coal power plants have opened every month in China for the last 5 years. 
 
 Environmental groups often claim that India can "skip" the coal phase in its economic development and go straight to solar. Delusional is too weak a word to describe such thinking. Solar is growing strongly in India but coal generates 53 times more power than solar in India. More importantly, over the past year Indian electricity demand grew by over 78 terawatt hours and increases in coal power contributed 65 per cent towards that increase.  
-
 
 ```{r}
 grid.arrange(p_g_india, p_delta_india, ncol = 2)
@@ -70,6 +69,12 @@ grid.arrange(p_g_india, p_delta_india, ncol = 2)
 The construction of these new coal fired power plants will underpin the demand for coal for decades to come, as the typical life of a coal fired power plant is 50 years. This is good news for Australia given that we are the world's largest exporter of coal. Continuing strong demand for coal will help support our terms of trade, our prosperity and employment in our mining sector. 
 
 While Australia is the world's largest exporter of coal we are not a major producer of coal. We only produce 5 per cent of the world's thermal coal. We produce a high quality product that helps increase the performance of coal fired power stations. This performance boost is even greater in new coal fired power stations so the demand outlook for Australian coal is strong. 
+
+Our major competitor in Asian coal markets is Indonesian coal. However, Indonesia is reserving more of its coal for its own needs, its generation of coal fired power is growing significantly. Further, Indonesian coal production has stagnated over the past few years.
+
+```{r}
+grid.arrange(p_c_gen$Indonesia + labs(title = "Indonesian coal power") + theme(plot.title = element_text(size = 14)), p_c_supply$Indonesia + labs(title = "Indonesian coal production") + theme(plot.title = element_text(size = 14)), ncol = 2)
+```
 
 This is reflected in strong prices for Australian coal over the past two years. Two years ago coal prices had declined to pre-mining boom levels. However, in the past two years shut downs of inefficient coal mines in China have rebalanced the coal market. Thermal coal prices have more than doubled in the past two years accordingly. 
 
@@ -81,7 +86,13 @@ p_coal_prices
 
 That would be great news for Australia. The Galilee would be the first major, new coal basin opened for more than 50 years. There are 5 other proposed mines in addition to Adani's and altogether they would create more than 16,000 jobs.
 
-Higher prices for coal reflect that coal is valued by the customer. Coal provides reliable and affordable energy and helps support the economic development of impoverished nations. It is good that Australia becomes more prosperous from the sale of coal. We do so because that sale creates value in another country. If you value the reduction of poverty and the economic development of poorer nations, the greater use of coal is a good sign. As coal use has more than tripled in the Asia Pacific region, poverty (as measured by those living on less than $1.90 per day) has been slashed by 95 per cent. 
+The world is not short of coal, and if Australia does not increase its production, Asian countries will source coal from elsewhere. US coal exports to Asia more than doubled in 2017.[^eia] Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 coal terminals proposed and combined they could handle over 125 million tonnes per year. 
+
+![](images\us_coal_exports.png)
+
+So far, Democrat state governments have prevented their construction. Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal exports was a restraint on their trade.[^us_coal] 
+
+Higher prices for coal reflect that coal is valued by the customer. Coal provides reliable and affordable energy and helps support the economic development of impoverished nations. It is good that Australia becomes more prosperous from the sale of coal. We do so because that sale creates value in another country. If you value the reduction of poverty and the economic development of poorer nations, the greater use of coal is a good sign. As coal use has increased by more than 6 times in the Asia Pacific region, poverty (as measured by those living on less than $1.90 per day) has been slashed by 95 per cent. 
 
 ```{r}
 grid.arrange(p_r_gen$`Asia Pacific` + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), p_pov_ap + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), ncol = 2)
@@ -109,4 +120,8 @@ This underlines the bright future for the Australian coal industry. The use of A
 
 [^butler]: Butler, M. 2018, "Managing Climate-Related Financial Risk - Lessons from Adani", Speech to the Sydney Institute, 19 Feburary, https://bit.ly/2HV8uCw
 
-[^wood]: Wood Mackenzie 2016, *Carmichael coal mine*, June. 
+[^wood]: Wood Mackenzie 2016, *Carmichael coal mine*, June.
+
+[^eia]: EIA 2018, 'U.S. coal exports increased by 61% in 2017 as exports to Asia more than doubled', 19 April, https://bit.ly/2JNIz5B
+
+[^us_coal]: Geiling, N. 2018, '6 states join battle over the largest proposed coal export terminal in the U.S.', *Think Progress*, 14 May, https://bit.ly/2jWQZIw
