@@ -30,13 +30,13 @@ Last week, BP released its respected Statistical Review of World Energy. Its sta
 
 There has been strong growth in solar and wind energy sources too but these increases are much smaller than the contribution of coal. That is true when looking at the whole world too, not just the Asia Pacific region. 
 
-Global electricity production increased by 590 terawatt hours in the past year, and just under 50 per cent of this increase was through the greater use of coal. There have been declines in the use of coal in the United States (because of cheap shale gas) and Europe (because of policy changes and natural depletion). However, the Asian region is what is relevant for our coal industry because that is where our exports are sent. 
+Global electricity production increased by over 600 terawatt hours in the past year, and just under 50 per cent of this increase was through the greater use of coal. There have been declines in the use of coal in the United States (because of cheap shale gas) and Europe (because of policy changes and natural depletion). However, the Asian region is what is relevant for our coal industry because that is where our exports are sent. 
 
 ```{r}
 p_delta
 ```
 
-In 2017 coal fired power set a new record for supply at 9724 terawatt hours, representing 40 per cent of world electricity generation, and by far the largest single source of global electricity. The proportion of electricity supplied by coal has not changed in 40 years. 
+In 2017 coal fired power set a new record for supply at 9723 terawatt hours, representing 40 per cent of world electricity generation, and by far the largest single source of global electricity. The proportion of electricity supplied by coal has not changed in 40 years. 
 
 As BP's Chief Economist said on the release of the statistics: 
 
@@ -58,7 +58,7 @@ p_r_gen$`Asia Pacific`
 
 These increases can only but be the result of continued investment in coal fired power stations. Over the past 15 years more than 1000 GW of coal fired power has been built. To put that in context that is equivalent of over 600 Hazelwood power stations. 
 
-And the trend is not slowing down. In the last 5 years, China has built the equivalent of 60 Hazelwood coal fired power stations. Or in other words, a new coal power plant has opened every month in China for the last 5 years. [I have backed this out using generation (ie twh data). ==[Do we have stats on installed capacity of coal fired power stations by country?]==
+And the trend is not slowing down. These increases are the result of continued investment in coal fired power stations. In the last 5 years,  China's coal production capacity has increased by almost 300GW. In statistical terms, 3 new Hazelwood sized coal power plants have opened every month in China for the last 5 years. 
 
 Environmental groups often claim that India can "skip" the coal phase in its economic development and go straight to solar. Delusional is too weak a word to describe such thinking. Solar is growing strongly in India but coal generates 53 times more power than solar in India. More importantly, over the past year Indian electricity demand grew by over 78 terawatt hours and increases in coal power contributed 65 per cent towards that increase.  
 
@@ -69,7 +69,7 @@ grid.arrange(p_g_india, p_delta_india, ncol = 2)
 
 The construction of these new coal fired power plants will underpin the demand for coal for decades to come, as the typical life of a coal fired power plant is 50 years. This is good news for Australia given that we are the world's largest exporter of coal. Continuing strong demand for coal will help support our terms of trade, our prosperity and employment in our mining sector. 
 
-While Australia is the world's largest exporter of coal we are not a major producer of coal. We only produce 4 per cent of the world's coal. We produce a high quality product that helps increase the performance of coal fired power stations. This performance boost is even greater in new coal fired power stations so the demand outlook for Australian coal is strong. 
+While Australia is the world's largest exporter of coal we are not a major producer of coal. We only produce 5 per cent of the world's thermal coal. We produce a high quality product that helps increase the performance of coal fired power stations. This performance boost is even greater in new coal fired power stations so the demand outlook for Australian coal is strong. 
 
 This is reflected in strong prices for Australian coal over the past two years. Two years ago coal prices had declined to pre-mining boom levels. However, in the past two years shut downs of inefficient coal mines in China have rebalanced the coal market. Thermal coal prices have more than doubled in the past two years accordingly. 
 
