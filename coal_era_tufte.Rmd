@@ -70,13 +70,13 @@ The construction of these new coal fired power plants will underpin the demand f
 
 While Australia is the world's largest exporter of coal we are not a major producer of coal. We only produce 5 per cent of the world's thermal coal. We produce a high quality product that helps increase the performance of coal fired power stations. This performance boost is even greater in new coal fired power stations so the demand outlook for Australian coal is strong. 
 
-Our major competitor in Asian coal markets is Indonesian coal. However, Indonesia is reserving more of its coal for its own needs, its generation of coal fired power is growing significantly. Further, Indonesian coal production has stagnated over the past few years.
+Australia's major competitor in Asian coal markets is Indonesian coal. However, Indonesia is reserving more of its coal for its own needs as its domestic generation of coal fired power is growing significantly. Indonesian coal production has stagnated over the past few years and China has shut down some of its inefficient coal mines.
 
 ```{r}
 grid.arrange(p_c_gen$Indonesia + labs(title = "Indonesian coal power") + theme(plot.title = element_text(size = 14)), p_c_supply$Indonesia + labs(title = "Indonesian coal production") + theme(plot.title = element_text(size = 14)), ncol = 2)
 ```
 
-This is reflected in strong prices for Australian coal over the past two years. Two years ago coal prices had declined to pre-mining boom levels. However, in the past two years shut downs of inefficient coal mines in China have rebalanced the coal market. Thermal coal prices have more than doubled in the past two years accordingly. 
+Higher demand and restricted supply have pushed up the price for Australian coal over the past two years. Two years ago coal prices had declined to pre-mining boom levels.  Thermal coal prices have more than doubled in the past two years accordingly. 
 
 This buoyant market situation also makes it more likely that the Galilee Basin will be opened up and the Adani Carmichael coal mine (the first in the Galilee) will start. Financial analysts Wood Mackenzie estimate that the cost of coal from the Adani Carmichael coal mine will be about US\$40 per tonne.[^wood] The current coal price is over US\$100 per tonne so that there is a strong commercial rationale to develop these supplies.  
  
@@ -88,10 +88,7 @@ That would be great news for Australia. The Galilee would be the first major, ne
 
 The world is not short of coal, and if Australia does not increase its production, Asian countries will source coal from elsewhere. US coal exports to Asia more than doubled in 2017.[^eia] Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 coal terminals proposed and combined they could handle over 125 million tonnes per year. 
 
-<center>
-
 ![](images\us_coal_exports.png)
-</center>
 
 So far, Democrat state governments have prevented their construction. Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal exports was a restraint on their trade.[^us_coal] 
 
