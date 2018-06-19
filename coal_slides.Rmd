@@ -96,6 +96,34 @@ grid.arrange(p_g_india, p_delta_india, ncol = 2)
 - Over the past year Indian electricity demand grew by over 78 terawatt hours and increases in coal power contributed 65 per cent towards that increase.
 ---
 
+# Indonesia will not export as much
+
+```{r}
+grid.arrange(p_c_gen$Indonesia + labs(title = "Indonesian coal power") + theme(plot.title = element_text(size = 14)), p_c_supply$Indonesia + labs(title = "Indonesian coal production") + theme(plot.title = element_text(size = 14)), ncol = 2)
+```
+
+- Indonesia is rapidly increasing its generation of coal fired power. 
+
+- At the same time Indonesian coal production has flatlined. It is unlikely that Indonesia will be able to export as much coal as in the past. 
+
+___
+
+# US coal exports could increase 
+
+<div class="columns-2">
+
+![](images\us_coal_exports.png)
+
+- US coal exports to Asia more than doubled in 2017, although from a low base. 
+
+- Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 proposed coal terminals and combined they could handle over 125 million tonnes per year. 
+
+</div>
+
+![](images\us_coal_exports.png)
+
+___
+
 # Coal prices are strong
 
 ```{r fig.height=3}

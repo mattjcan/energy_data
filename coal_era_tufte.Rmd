@@ -88,7 +88,10 @@ That would be great news for Australia. The Galilee would be the first major, ne
 
 The world is not short of coal, and if Australia does not increase its production, Asian countries will source coal from elsewhere. US coal exports to Asia more than doubled in 2017.[^eia] Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 coal terminals proposed and combined they could handle over 125 million tonnes per year. 
 
+<center>
+
 ![](images\us_coal_exports.png)
+</center>
 
 So far, Democrat state governments have prevented their construction. Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal exports was a restraint on their trade.[^us_coal] 
 
