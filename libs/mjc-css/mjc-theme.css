@@ -1,17 +1,35 @@
 
-
 .remark-slide {
     background-color: #fffff8;
   }
 
-.title-slide h1 {
-font-size: 300%;
-}
-
-.remark-slide h1 {
+.remark-slide-content h1 {
   font-size: 40px;
 }
 
 .remark-slide-content h2 {
   font-size: 30px;
+}
+
+.title-slide {
+  background-image: url(https://images.pexels.com/photos/46801/coal-briquette-black-46801.jpeg);
+  background-size: cover;
+}
+
+.title-slide {
+    text-shadow: 0 0 20px #333;
+}
+
+.title-slide h1, .title-slide h2, .title-slide h3 {
+    color: #ffffff;
+    text-shadow: 0 0 60px #333;
+    -webkit-text-stroke: 1px black;
+}
+
+.title-slide h1 {
+  font-size: 65px;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
 }
