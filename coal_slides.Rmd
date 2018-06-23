@@ -120,7 +120,7 @@ grid.arrange(p_c_gen$Indonesia + labs(title = "Indonesian coal power") + theme(p
 
 - Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 proposed coal terminals and combined they could handle over 125 million tonnes per year. 
 
-- Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal exports was a restraint on their trade.
+- Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal export terminals was a restraint on their trade.
 ]
 
 ---
