@@ -32,30 +32,45 @@ d <- "C:/Users/matt/Dropbox/01a. Resources/data/energy_data/" # parent directory
 
 prices <- read_csv(paste0(d,"data/world_bank_prices.csv"), skip = 6)
 
+met <- read_csv(paste0(d,"data/met_prices.csv"), skip = 0)
+
 # TIDY ------------------------------------------------------------------
 
 coal_prices <- prices[ ,c(1, 6)]
 
-names(coal_prices) <- c("month", "aus_coal")
+names(coal_prices) <- c("date", "price")
 
-coal_prices$month <- str_replace(coal_prices$month, "M", "-")
+coal_prices$date <- str_replace(coal_prices$date, "M", "-")
 
-coal_prices$month <- paste0(coal_prices$month, "-01")
+coal_prices$date <- paste0(coal_prices$date, "-01")
 
-coal_prices$month <- as.Date(coal_prices$month, "%Y-%m-%d")
+coal_prices$date <- as.Date(coal_prices$date, "%Y-%m-%d")
 
 coal_prices <- coal_prices[121:701, ]
 
-coal_prices$aus_coal <- as.numeric(coal_prices$aus_coal)
+coal_prices$price <- as.numeric(coal_prices$price)
+
+coal_prices$type <- "thermal"
+
+# met prices
+
+met$date <- as.Date(met$date, "%d-%b-%y")
+
+met$type <- "met"
+
+coal_prices <- rbind(coal_prices, met)
 
 # VISUALISE --------------------------------------------------------------------
 
 p_coal_prices <- coal_prices %>%
-  filter(month > "2001-01-01") %>% 
-  ggplot(aes(x = month, y = aus_coal)) + 
-  geom_line(color = "#4484ce", size = 1) + 
+  filter(date > "2001-01-01") %>% 
+  ggplot(aes(x = date, y = price)) + 
+  geom_line(aes(color = type), size = 1) + 
   theme_mc + 
-  labs(title = "Thermal coal prices", subtitle = "per metric tonne, US nominal dollars", caption = "Source: World Bank Commodity Price Data, Newcastle/Port Kembla from 2002 onwards, 6,300 kcal/kg", x ="", y = "") 
+  labs(title = "Coal prices", subtitle = "per metric tonne, US nominal dollars", caption = "Source: World Bank Commodity Price Data, Bloomberg and IHS Markit", x ="", y = "") +
+  scale_color_manual(values = c(thermal = "black", met = "blue"), labels = c("Met", "Thermal")) + 
+  theme(legend.position = "right", legend.text = element_text(size=8), legend.background = element_rect(fill = background), legend.key = element_rect(fill = background), legend.title = element_blank()) 
+
 
 # EXPORT --------------------------------------------------------------------
 

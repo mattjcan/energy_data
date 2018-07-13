@@ -55,6 +55,8 @@ elec_gen_fuel <- read_csv(paste0(d,"data/elec_gen_fuel.csv"), skip = 2)
 
 pov <- read_csv(paste0(d,"data/poverty.csv"), skip = 0)
 
+carbon <- read_csv(paste0(d,"data/carbon.csv"), skip = 2)
+
 # coal prices?
 
 # TIDY --------------------------------------------------------------------
@@ -175,6 +177,38 @@ wind <- wind %>%
 wind <- mutate_all(wind, funs(replace(., .=='-', NA)))
 
 wind <- mutate_all(wind, funs(replace(., .=='^', NA)))
+
+# carbon
+
+carbon <- carbon[1:104, 1:54] # remove footnotes and extra columns
+
+carbon <- carbon %>% 
+  rename(Country = `Million tonnes of carbon dioxide`) %>% 
+  filter(!is.na(Country) & !str_detect(Country, 'Total'))
+
+carbon <- mutate_all(carbon, funs(replace(., .=='-', NA)))
+
+carbon <- mutate_all(carbon, funs(replace(., .=='^', NA)))
+
+carbon <- mutate_all(carbon, funs(replace(., .=='n/a', NA)))
+
+carbon$lab <- str_wrap(gsub("\\s*\\([^\\)]+\\)","",as.character(carbon$Country)), width = 10)
+
+carbon_last10 <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(index = carbon / carbon[year == "2007"] * 100)
+
+carbon_last10_p <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(delta = carbon / carbon[year == "2007"] - 1)
+
+carbon_lasty_p <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(delta = carbon / carbon[year == "2016"] - 1)
+
+carbon_country <- c("US", "Canada", "Germany", "France", "United Kingdom", "Australia", "China", "India", "Japan", "South Korea")
+
+carbon_oecd <- c("US", "Canada", "Germany", "France", "United Kingdom", "Australia", "Japan", "South Korea")
 
 
 
@@ -311,6 +345,23 @@ gen_by_ap <- gen_by_region %>%
   filter(region == "Asia Pacific") 
 
 first_ap <- gen_by_ap$twh[1]
+
+# carbon
+
+carbon <- carbon %>%
+  gather(key = year, value = carbon, -Country)
+
+carbon[,2:3] <- lapply(carbon[2:3], as.numeric)
+
+carbon$region <- reg_key$region[match(carbon$Country, reg_key$Country)]
+
+carbon_by_region <- carbon %>% 
+  group_by(year, region) %>% 
+  summarise(carbon = sum(carbon, na.rm = TRUE))
+
+carbon_by_globe <- carbon %>% 
+  group_by(year) %>% 
+  summarise(carbon = sum(carbon, na.rm = TRUE))
 
 
 # VISUALISE --------------------------------------------------------------------
@@ -492,3 +543,38 @@ p_pov_ap <- pov %>%
   theme_mc + 
   labs(title = "Proportion of population living in poverty", subtitle = "East Asia & Pacific, below US$1.90 per day, real dollars", caption = "Source: World Bank DataBank, Poverty and Equity", x ="", y = "") 
 
+# carbon
+
+# global coal consumption
+
+p_carbon_globe <- carbon_by_globe %>% 
+  ggplot(aes(x = year, y = carbon)) + 
+  geom_line(color = "#4484ce", size = 1) + 
+  theme_mc + 
+  labs(title = "Global carbon emissions", subtitle = "million tonnes of oil equivalent", caption = "Source: BP Statistical Review of World Energy", x ="", y = "") 
+
+p_last10_line <- carbon_last10 %>% 
+  filter(Country %in% carbon_country & year >= 2007) %>% 
+  ggplot(aes(x = year, y = index, color = Country)) + 
+  geom_line(size = 1) + 
+  theme_mc + 
+  labs(title = "Carbon emissions since 2007", subtitle = "2007 = 100", caption = "Source: BP Statistical Review of World Energy", x ="", y = "") + 
+  theme(legend.position = "right", legend.text = element_text(size=9), legend.background = element_rect(fill = background), legend.key = element_rect(fill = background), legend.title = element_blank()) +
+  ylim(80,110)
+
+p_lasty_p <- carbon_lasty_p %>% 
+  filter(Country %in% carbon_oecd & year == "2017") %>% 
+  ggplot(aes(x = reorder(lab, -delta), y = delta * 100, fill = Country)) + 
+  geom_bar(stat = "identity", fill = "#2166ac") + 
+  theme_mc + 
+  labs(title = "Change in carbon emissions over last year", subtitle = "%", caption = "Source: BP Statistical Review of World Energy", x ="", y = "") +
+  geom_text(aes(label = paste(round(delta * 100,1)), vjust = ifelse(delta >= 0, -1, 1.5)), size=3) + 
+  ylim(-4, 4)
+
+p_last10_p <- carbon_last10_p %>% 
+  filter(Country %in% carbon_country & year == "2017") %>% 
+  ggplot(aes(x = reorder(lab, -delta), y = delta * 100, fill = Country)) + 
+  geom_bar(stat = "identity", fill = "#2166ac") + 
+  theme_mc + 
+  labs(title = "Change in carbon emissions since 2007", subtitle = "2007 = 100", caption = "Source: BP Statistical Review of World Energy", x ="", y = "") +
+  geom_text(aes(label = paste(round(delta * 100,1)), vjust = ifelse(delta >= 0, -1, 1.5)), size=3) 
