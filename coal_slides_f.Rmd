@@ -1,0 +1,150 @@
+---
+title: "THE COAL ERA IS NOT OVER"
+author: 
+date: 
+output:
+  xaringan::moon_reader:
+    css: ["default", "libs/mjc-css/mjc-theme.css", "libs/mjc-css/mjc-fonts.css"]
+    lib_dir: libs
+---
+
+```{r global_options, include=FALSE}
+
+knitr::opts_chunk$set(fig.width=7, fig.height=4.5, echo=FALSE, warning=FALSE, message=FALSE, dpi = 300)
+
+library(knitr)
+
+source("bp.R")
+source("prices.R")
+source("hist.R")
+source("C:/Users/matt/Dropbox/01a. Resources/data/exports/exports.R")
+
+```
+
+
+# Coal has remained at top for decades
+
+```{r}
+p_g_fuel
+```
+
+---
+
+# Australian exports of coal are at record highs 
+
+```{r }
+p_summ
+```
+
+---
+
+# Coronation of coal ... again
+
+```{r}
+p_rank
+```
+
+---
+
+# Coal use is increasing ... 
+
+```{r}
+p_delta
+```
+---
+
+# ... and surging in Asia
+
+```{r }
+p_delta_ap
+```
+
+---
+
+# Coal growth in Asia is not slowing down
+
+```{r }
+p_r_gen$`Asia Pacific`
+```
+
+---
+
+# Coal power around the world
+
+```{r}
+grid.arrange(p_c_gen$China + labs(title = "China") + theme(plot.title = element_text(size = 12)), p_c_gen$Japan + labs(title = "Japan") + theme(plot.title = element_text(size = 12)), p_c_gen$US + labs(title = "United States") + theme(plot.title = element_text(size = 12)), p_r_gen$Europe + labs(title = "Europe") + theme(plot.title = element_text(size = 12)), ncol = 2)
+```
+
+---
+
+# Solar will not power India on its own
+
+```{r }
+grid.arrange(p_g_india, p_delta_india, ncol = 2)
+```
+
+---
+
+# Indonesia will not export as much
+
+```{r}
+grid.arrange(p_c_gen$Indonesia + labs(title = "Indonesian coal power") + theme(plot.title = element_text(size = 14)), p_c_supply$Indonesia + labs(title = "Indonesian coal production") + theme(plot.title = element_text(size = 14)), ncol = 2)
+```
+
+---
+
+# US coal exports could increase 
+
+.pull-left[
+
+![](images\us_coal_exports.png)
+]
+
+.pull-right[
+- US coal exports to Asia more than doubled in 2017, although from a low base. 
+
+- Additional US coal exports to Asia are limited by the lack of bulk coal export facilities on the US west coast. However, there are 7 proposed coal terminals and combined they could handle over 125 million tonnes per year. 
+
+- Earlier this year, Wyoming, Montana, Kansas, Utah, South Dakota, and Nebraska took Washington state to the federal court, arguing that the state’s rejection of coal export terminals was a restraint on their trade.
+]
+
+---
+
+# Coal prices are strong
+
+```{r }
+p_coal_prices
+```
+
+---
+
+# Demand is very strong for high quality coal
+
+```{r }
+p_diff
+```
+
+---
+
+# Carbon emissions can fall while using more fossil fuels
+
+``` {r }
+p_lasty_p
+```
+
+---
+
+# Coal has helped bring down poverty
+
+```{r }
+grid.arrange(p_r_gen$`Asia Pacific` + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), p_pov_ap + theme(plot.title = element_text(size = 9), plot.subtitle = element_text(size = 8), plot.caption = element_text(size = 7)), ncol = 2)
+```
+
+---
+
+# A lot more coal must be mined
+
+```{r}
+p_hist_coal
+```
+

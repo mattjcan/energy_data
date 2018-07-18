@@ -59,6 +59,9 @@ p_coal_prices
 dev.off() 
 
 
-file_name <- paste0("file://", normalizePath("coal_slides.html"))
+file_name <- paste0(normalizePath("coal_slides_f.html"))
 
-webshot(file_name, "coal_slides.pdf")
+webshot(file_name, "coal_slides_f.pdf")
+
+
+# decktape remark coal_slides_f.html coal_slides_f.pdf

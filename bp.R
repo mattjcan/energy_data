@@ -192,23 +192,14 @@ carbon <- mutate_all(carbon, funs(replace(., .=='^', NA)))
 
 carbon <- mutate_all(carbon, funs(replace(., .=='n/a', NA)))
 
-carbon$lab <- str_wrap(gsub("\\s*\\([^\\)]+\\)","",as.character(carbon$Country)), width = 10)
-
-carbon_last10 <- carbon %>% 
-  group_by(Country)%>% 
-  mutate(index = carbon / carbon[year == "2007"] * 100)
-
-carbon_last10_p <- carbon %>% 
-  group_by(Country)%>% 
-  mutate(delta = carbon / carbon[year == "2007"] - 1)
-
-carbon_lasty_p <- carbon %>% 
-  group_by(Country)%>% 
-  mutate(delta = carbon / carbon[year == "2016"] - 1)
+carbon <- carbon %>%
+  gather(key = year, value = carbon, -Country)
 
 carbon_country <- c("US", "Canada", "Germany", "France", "United Kingdom", "Australia", "China", "India", "Japan", "South Korea")
 
 carbon_oecd <- c("US", "Canada", "Germany", "France", "United Kingdom", "Australia", "Japan", "South Korea")
+
+carbon$lab <- str_wrap(gsub("\\s*\\([^\\)]+\\)","",as.character(carbon$Country)), width = 10)
 
 
 
@@ -348,12 +339,21 @@ first_ap <- gen_by_ap$twh[1]
 
 # carbon
 
-carbon <- carbon %>%
-  gather(key = year, value = carbon, -Country)
-
 carbon[,2:3] <- lapply(carbon[2:3], as.numeric)
 
 carbon$region <- reg_key$region[match(carbon$Country, reg_key$Country)]
+
+carbon_last10 <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(index = carbon / carbon[year == "2007"] * 100)
+
+carbon_last10_p <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(delta = carbon / carbon[year == "2007"] - 1)
+
+carbon_lasty_p <- carbon %>% 
+  group_by(Country)%>% 
+  mutate(delta = carbon / carbon[year == "2016"] - 1)
 
 carbon_by_region <- carbon %>% 
   group_by(year, region) %>% 
@@ -545,8 +545,6 @@ p_pov_ap <- pov %>%
 
 # carbon
 
-# global coal consumption
-
 p_carbon_globe <- carbon_by_globe %>% 
   ggplot(aes(x = year, y = carbon)) + 
   geom_line(color = "#4484ce", size = 1) + 
@@ -578,3 +576,4 @@ p_last10_p <- carbon_last10_p %>%
   theme_mc + 
   labs(title = "Change in carbon emissions since 2007", subtitle = "2007 = 100", caption = "Source: BP Statistical Review of World Energy", x ="", y = "") +
   geom_text(aes(label = paste(round(delta * 100,1)), vjust = ifelse(delta >= 0, -1, 1.5)), size=3) 
+
